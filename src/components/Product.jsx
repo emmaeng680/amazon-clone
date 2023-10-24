@@ -1,10 +1,13 @@
-import React from 'react'
+import React,{useState} from 'react'
 import "./Product.css"
 import { useStateValue } from "./StateProvider";
 
 const Product = ({ id, title, image, price, rating }) => {
 
   const [{ basket }, dispatch] = useStateValue();
+
+  const [error, setError] = useState(null);
+    const [disabled, setDisabled] = useState(true);
     
   const addToBasket = () => {
     // dispatch the item into the data layer
